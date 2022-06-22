@@ -1,0 +1,208 @@
+Body{
+  margin: 0;
+  padding: 0;
+}
+.LoginPage-Body{
+  width: 100vw;
+  height: 100vh;
+  background-color: #b5b737;
+}
+.Login-Box{
+  height: 380px;
+  width: 300px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.Login-Box-Title{
+  text-align: center;
+}
+
+.Login-Box input{
+  padding-left: 20px;
+  width: 100%;
+  height: 50px;
+  box-sizing: border-box;
+  border: 1px;
+  margin-top: 20px;
+  font-size: 15pt;
+  background-color: #898d43;
+  color:#000000;
+}
+
+.Login-Box ::placeholder{
+  color: #4c5e30;
+}
+
+.Login-Box input[type='checkbox']{
+  height: 20px
+}
+
+.Login-Box input[type='submit']{
+  background-color:#4c5e30;
+  color:rgb(7, 8, 8);
+  padding: 0px;
+  border-radius: 25px;
+}
+
+.HomePage-Body{
+  width: 100vw;
+  height: 100vh;
+  background-color:#d5d5d5;
+}
+
+.HomePage-Header{
+  width: 99vw;
+  height: 15vh;
+  margin-left: 0.5vw;
+  margin-bottom: 1vh;
+  border: 1px solid;
+  border-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Curr-Box{
+  width: 30em;
+  height: 9em;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+}
+.Curr-BoxItems{
+  width: 8em;
+  height: 2em;
+  border: 1px solid;
+  border-color: black;
+  margin-right: 1em;
+}
+.Curr-Button{
+  width: 100%;
+  height: 100%;
+  background-color: #d5d5d5;
+  }
+.HomePage-CurrExchange{
+  width: 99vw;
+  height: 25vh;
+  margin-left: 0.5vw;
+  margin-bottom: 1vh;
+  border: 1px solid;
+  display: flex;
+  justify-content: space-between;
+}
+.Curr-Input{
+  width: 38%;
+  height: 90%;
+  /* border: 1px solid; */
+  /* border-color: rgb(207, 37, 37); */
+  margin-top: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.Curr-Input-Top{
+  /* border: 1px solid rgb(57, 19, 224); */
+  height: 5em;
+  width: 100%;
+  margin-top: -5%;
+}
+
+.Curr-Input-Top input{
+  width:99%;
+  background-color: #d5d5d5;
+  height: 50%;
+  border: 1px solid black;
+  margin-top: 3px;
+  margin-left: 3px;
+}
+
+.Curr-Input-Bottom{
+  border: 1px solid black;
+  height: 2em;
+  width: 100%;
+  margin-left: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Curr-Convert{
+  width: 58%;
+  height: 90%;
+  /* border: 1px solid rgb(207, 37, 37); */
+  margin-top: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.Curr-Convert-Header{
+  width: 100%;
+  height: 25%;
+  /* border: 1px solid blue; */
+  display: flex;
+  justify-content: space-between;
+}
+/* .Exchange-Button{
+  width: 5em;
+  height: 5em;
+} */
+
+.Curr-Select{
+  width: 15em;
+  height: 2em;
+  padding-left: 11em;
+  background-color: gray;
+  border-radius: 5px;
+  font-size: medium;
+}
+.Curr-Convert-Body{
+  width: 100%;
+  height: 20%;
+  /* border: 1px solid blue; */
+}
+
+.Convert-Button{
+  width: 100%;
+  height: 100%;
+  background-color: #ffa827;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.Curr-Convert-Footer{
+  width: 100%;
+  height: 40%;
+  /* border: 1px solid blue; */
+  display: flex;
+  justify-content: space-between;
+}
+
+.Converted-Value{
+  width: 50%;
+  height: 99%;
+  border: 1px solid rgb(1, 1, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.More-Det{
+  width: 40%;
+  height: 50%;
+  /* border: 1px solid rgb(0, 255, 145); */
+  margin-top: 2%;
+}
+
+.HomePage-PopularCurr{
+  width: 99vw;
+  height: 50vh;
+  margin-left: 0.5vw;
+  margin-bottom: 2vh;
+  border: 1px solid;
+  border-color: black;
+}
