@@ -6,9 +6,6 @@ const PageHeader = (props) => {
     const [fromCurr, setFromCurr] = useState(props.fromCurr);
     const [toCurr, setToCurr] = useState(props.toCurr);
     const [currSymbol, setCurrSymbol]= useState(props.currSymbol);
-    // const [currencyList, setCurrencyList] = useState(props.currencyList);
-    console.log('currency List in Page Header:',props.currencyList);
-    // console.log('currSymbol',currSymbol)
 
     const handleDetailsButton = (curr1, curr2) =>{
         console.log('curr1',curr1);

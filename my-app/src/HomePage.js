@@ -33,6 +33,8 @@ const HomePage = () => {
         .then(response => response.json())
         .then((result) => {
             // console.log(result);
+            // console.log('result.rates',result.rates);
+            // console.log('exchangeRateList',exchangeRateList);
             setCurrencyList([...Object.keys(result.rates)]);
             let tempExchRate = result.rates[toCurr];
             setExchangeRate(result.rates[toCurr]);
@@ -70,12 +72,14 @@ const HomePage = () => {
         fetch(`https://api.apilayer.com/exchangerates_data/latest?base=${fromCurr}`,requestOptions)
         .then(response => response.json())
         .then((result) => {
-            // console.log(result);
-            setExchangeRate(result.rates[toCurr]);
-            let calculatedAmount = fromAmount * exchangeRate;
+            console.log('result after convert button',result);
+            let tempExchangeRate = result.rates[toCurr];
+            setExchangeRate(tempExchangeRate);
+            let calculatedAmount = fromAmount * tempExchangeRate;
             setToAmount(calculatedAmount);
             setSelectedToCurr(toCurr);
 
+        //Code to calculate the conversion of entered amount to popular currencies
         let tempNumberArray = [];
         let tempCurrArray = [];
         let exchangeRates = [...Object.values(result.rates)];
@@ -120,8 +124,8 @@ const HomePage = () => {
                 currencyList={currencyList}
                 fromCurr={fromCurr}
                 toCurr={toCurr}
-                ChangeFromCurrency={(e) => {setFromCurr(e.target.value)}}
-                ChangeToCurrency={(e) => {setToCurr(e.target.value);setSelectedToCurr(e.target.value)}}
+                setFromCurrency={(e) => {setFromCurr(e.target.value)}}
+                setToCurrency={(e) => {setToCurr(e.target.value)}}
                 fromAmount={fromAmount}
                 ChangeFromAmount={(e)=> {setFromAmount(e.target.value)}}
                 toAmount={toAmount}

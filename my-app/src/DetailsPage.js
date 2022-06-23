@@ -54,9 +54,9 @@ const DetailsPage = () => {
             <PageBody
                 currencyList={currencyList}
                 fromCurr={fromCurr}
-                toCurr={location.state.toCurr}
-                ChangeFromCurrency={(e) => {setFromCurr(e.target.value)}}
-                ChangeToCurrency={(e) => {setToCurr(e.target.value)}}
+                toCurr={toCurr}
+                setFromCurrency={(e) => {setFromCurr(e.target.value)}}
+                setToCurrency={(e) => {setToCurr(e.target.value)}}
                 fromAmount={fromAmount}
                 ChangeFromAmount={(e)=> {setFromAmount(e.target.value)}}
                 toAmount={toAmount}

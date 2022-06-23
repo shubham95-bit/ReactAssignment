@@ -7,8 +7,8 @@ const PageBody = (props) => {
             currencyList, 
             fromCurr,
             toCurr, 
-            ChangeFromCurrency,
-            ChangeToCurrency, 
+            setFromCurrency,
+            setToCurrency, 
             fromAmount, 
             ChangeFromAmount, 
             toAmount, 
@@ -72,7 +72,7 @@ const PageBody = (props) => {
                         <input type='number' value={fromAmount} onChange={(e)=>{ChangeFromAmount(e); setButtonsDisabled(false)}}/>
                     </div>
                     <div className='Curr-Input-Bottom'>
-                        <p>1.00 {fromCurr}=={exchangeRate} {toCurr}</p>
+                        <p>1.00 {fromCurr}={exchangeRate} {toCurr}</p>
                     </div>
                 </div>
                 <div className='Curr-Convert'>
@@ -80,7 +80,10 @@ const PageBody = (props) => {
                         <div>
                             <label>From</label>
                             <div>
-                                <select className='Curr-Select' value={fromCurr} onChange={(e)=>{ChangeFromCurrency(e)}} disabled={buttonsDisabled}>
+                                <select className='Curr-Select' value={fromCurr}
+                                    onChange={(e)=>{setFromCurrency(e);console.log('fromcurr',fromCurr)}} 
+                                    disabled={buttonsDisabled}
+                                >
                                     {
                                         currencyList.map(curr=>(
                                             <option key={curr} value={curr}>{curr}</option>
@@ -93,7 +96,8 @@ const PageBody = (props) => {
                         <div>
                             <label>To</label>
                             <div>
-                                <select style={{marginRight: '1px'}} className='Curr-Select' value={toCurr} onChange={ChangeToCurrency} disabled={buttonsDisabled}>
+                                <select style={{marginRight: '1px'}} className='Curr-Select' value={toCurr} 
+                                onChange={(e)=>{setToCurrency(e);console.log('toCurr',toCurr)}} disabled={buttonsDisabled}>
                                 {
                                     currencyList.map(curr=>(
                                         <option key={curr} value={curr}>{curr}</option>
@@ -108,7 +112,7 @@ const PageBody = (props) => {
                     </div>
                     <div className='Curr-Convert-Footer'>
                     <div className={isHomePage ? 'Converted-Value-Home' : 'Converted-Value-Detail'}>
-                        <p>{toAmount} {selectedToCurr}</p>
+                        <p>{toAmount} {toCurr}</p>
                     </div>
                     <div className={isHomePage ? 'More-Det-Home' : 'More-Det-Details'}>
                     <button type='button' className='Convert-Button' onClick={()=>{handleMoreDetails(fromCurr, toCurr, fromAmount)}} disabled={buttonsDisabled}>More-Details</button>
