@@ -13,7 +13,8 @@ const DetailsPage = () => {
     const [toAmount, setToAmount] = useState(location.state.toAmount);
     const [exchangeRate, setExchangeRate] = useState(location.state.exchangeRate);
     const [selectedToCurr, setSelectedToCurr] = useState(location.state.selectedToCurr);
-    const [disableButtons, setDisableButtons] = useState(location.state.disableButtons)
+    const [disableButtons, setDisableButtons] = useState(location.state.disableButtons);
+    const [exchangeRateArray, setExchangeRateArray] = useState(location.state.exchangeRateArray)
     const {
         currSymbol,
         isHomePage
@@ -69,7 +70,7 @@ const DetailsPage = () => {
                 disableButtons={disableButtons}
                 isHomePage={isHomePage}
             />
-            <HistoryCharts fromCurr={fromCurr} toCurr={toCurr} exchangeRateArray={location.state.exchangeRateArray}/>
+            <HistoryCharts fromCurr={fromCurr} toCurr={toCurr} exchangeRateArray={exchangeRateArray}/>
         </div>
     )
 }

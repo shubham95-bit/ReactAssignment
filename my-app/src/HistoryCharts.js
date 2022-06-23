@@ -3,7 +3,7 @@ import { Bar } from 'react-chartjs-2';
 import Chart from 'chart.js/auto';
 
 const HistoryCharts = (props) => {
-
+const [exchangeRateArrayList, setExchangeRateArrayList] = useState(props.exchangeRateArray)
     return (
         <div className="DetailsPage-Charts">
             <Bar className="Bar-Style" style={{maxWidth: '98em', maxHeight: '30em'}}
@@ -11,7 +11,7 @@ const HistoryCharts = (props) => {
                 labels : ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
                 datasets: [{
                     label: 'Currency Exchange Rates',
-                    data: props.exchangeRateArray,
+                    data: exchangeRateArrayList,
                     backgroundColor:[
                         'rgba(137, 24, 24, 0.5)',
                         'rgba(225, 26, 142, 0.5)',
