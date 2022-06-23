@@ -13,7 +13,7 @@ const PageHeader = (props) => {
         // setFromCurr(curr1);
         // setToCurr(curr2);
         navigate('/DetailsPage',{state:{fromCurr: curr1, toCurr: curr2, currSymbol: currSymbol, fromAmount: 1, currencyList: props.currencyList, selectedToCurr: curr2, disableButtons: false, isHomePage: false, toAmount:props.toAmount,
-        exchangeRate:props.exchangeRate}});
+        exchangeRate:props.exchangeRate,displayCurr:curr1}});
     }
     return (
         <div className="HomePage-Header">

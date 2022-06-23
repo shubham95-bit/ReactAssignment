@@ -33,8 +33,9 @@ const DetailsPage = () => {
         .then(response => response.json())
         .then((result) => {
             // console.log(result);
-            setExchangeRate(result.rates[toCurr]);
-            let calculatedAmount = fromAmount * exchangeRate;
+            let tempExchangeRate = result.rates[toCurr];
+            setExchangeRate(tempExchangeRate);
+            let calculatedAmount = fromAmount * tempExchangeRate;
             setToAmount(calculatedAmount);
             setSelectedToCurr(toCurr);
         })
@@ -50,7 +51,7 @@ const DetailsPage = () => {
      return (
         <div className="HomePage-Body">
             <PageHeader/>
-            <h1 style={{paddingLeft:'1vh'}}>{fromCurr} - {currSymbol}</h1>
+            <h1 style={{paddingLeft:'1vh'}}>{location.state.displayCurr} - {currSymbol}</h1>
             <PageBody
                 currencyList={currencyList}
                 fromCurr={fromCurr}
