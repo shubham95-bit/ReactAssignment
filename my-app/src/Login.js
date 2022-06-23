@@ -23,7 +23,7 @@ const Login = () => {
             else{
                 if(userData[0].address.zipcode === password)
                 {
-                    navigate('/HomePage');
+                    navigate('/HomePage',{state:{disableButtons: true, isHomePage: true}});
                 }
                 else{
                     setCredentialsError('* Incorrect Password');
@@ -45,14 +45,14 @@ const Login = () => {
                             placeholder="UserName"
                             value={userName} 
                             required
-                            onChange={(e)=>{setUserName(e.target.value);console.log("Value of userName",userName)}}
+                            onChange={(e)=>{setUserName(e.target.value)}}
                         />
                         <input type='password' 
                             name='Password'
                             placeholder="Password"
                             value={password} 
                             required
-                            onChange={(e)=>{setPassword(e.target.value);console.log("Value of Password",password)}}
+                            onChange={(e)=>{setPassword(e.target.value)}}
                         />
                         <span style={{color: '#ca2282'}}>{credentialsError}</span>
                         <input type='submit'
