@@ -20,10 +20,10 @@ const PageHeader = (props) => {
             <img src={Logo} alt='Site Logo' style={{width:'90px',height:'90px'}}/>
             <div className='Curr-Box'>
                 <div className='Curr-BoxItems'>
-                    <button type='button' className='Curr-Button' onClick={()=>{handleDetailsButton('EUR','USD')}}>EUR-USD Details</button>
+                    <button type='button' className='Curr-Button' onClick={()=>{handleDetailsButton('EUR','USD')}} disabled>EUR-USD Details</button>
                 </div>
                 <div className='Curr-BoxItems'>
-                    <button type='button' className='Curr-Button' onClick={()=>{handleDetailsButton('EUR','GBP')}}>EUR-GBP Details</button>
+                    <button type='button' className='Curr-Button' onClick={()=>{handleDetailsButton('EUR','GBP')}} disabled>EUR-GBP Details</button>
                 </div>
             </div>
         </div>
