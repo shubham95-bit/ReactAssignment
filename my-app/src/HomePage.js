@@ -16,9 +16,9 @@ const HomePage = () => {
     const [currSymbol, setCurrSymbol] = useState();
     const [disableButtons, setDisableButtons] = useState(location.state.disableButtons);
     const [isHomePage, setIsHomePage] = useState(location.state.isHomePage); 
-    const [numberArray, setNumberArray] = useState([]);
-    const [currArray, setCurrArray] = useState([]);
-    const [exchangeRateArray, setExchangeRateArray]= useState([]);
+    const [randomNumberArray, setRandomNumberArray] = useState([]);
+    const [popularCurrArray, setPopularCurrArray] = useState([]);
+    const [popularExchangeRateArray, setPopularExchangeRateArray]= useState([]);
 
     var myHeaders = new Headers();
     myHeaders.append("apikey", "33ou3vwnWqO9IHB14NK8GT99mD3kKWDW");
@@ -80,21 +80,21 @@ const HomePage = () => {
             setSelectedToCurr(toCurr);
 
         //Code to calculate the conversion of entered amount to popular currencies
-        let tempNumberArray = [];
-        let tempCurrArray = [];
+        let tempRandomNumberArray = [];
+        let tempPopularCurrArray = [];
         let exchangeRates = [...Object.values(result.rates)];
-        let tempExchangeRateArray = [];
+        let tempPopularExchangeRateArray = [];
         for(let i = 0; i < 9; i++){
             let random = Math.random() * 100;
             random = Math.floor(random);
-            tempNumberArray.push(random);
-            tempCurrArray.push(currencyList[random]);
-            tempExchangeRateArray.push(exchangeRates[random]);
+            tempRandomNumberArray.push(random);
+            tempPopularCurrArray.push(currencyList[random]);
+            tempPopularExchangeRateArray.push(exchangeRates[random]);
         }
         
-        setNumberArray([...tempNumberArray]);
-        setCurrArray([...tempCurrArray]);
-        setExchangeRateArray([...tempExchangeRateArray])
+        setRandomNumberArray([...tempRandomNumberArray]);
+        setPopularCurrArray([...tempPopularCurrArray]);
+        setPopularExchangeRateArray([...tempPopularExchangeRateArray])
         })
         .catch(error => console.log('error',error));
     }
@@ -140,10 +140,10 @@ const HomePage = () => {
 
             <div className="HomePage-PopularCurr">
                 { 
-                        numberArray.map((number,index)=>{
+                        randomNumberArray.map((number,index)=>{
                             return(
                                 <div className='Curr-Cards'>
-                                    <div>{fromAmount * exchangeRateArray[index]} {currArray[index]}</div>
+                                    <div>{fromAmount * popularExchangeRateArray[index]} {popularCurrArray[index]}</div>
                                 </div>
                             )
                         }) 
