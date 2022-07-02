@@ -20,10 +20,6 @@ const DetailsPage = () => {
         currSymbol,
         isHomePage
     } = location.state;
-    console.log('fromCurr',fromCurr);
-    console.log('toCurr',toCurr);
-    console.log('location.state.fromCurr',location.state.fromCurr);
-    console.log('location.state.toCurr',location.state.toCurr);
     var myHeaders = new Headers();
     myHeaders.append("apikey", "29PVT27k8eUCw8rYlKPbbGcZCqutwCK3");
 
@@ -37,7 +33,6 @@ const DetailsPage = () => {
         fetch(`https://api.apilayer.com/exchangerates_data/latest?base=${fromCurr}`,requestOptions)
         .then(response => response.json())
         .then((result) => {
-            // console.log(result);
             let tempExchangeRate = result.rates[toCurr];
             setExchangeRate(tempExchangeRate);
             let calculatedAmount = fromAmount * tempExchangeRate;
@@ -62,7 +57,6 @@ const DetailsPage = () => {
         await fetch(`https://api.apilayer.com/exchangerates_data/timeseries?start_date=${'2021-01-31'}&end_date=${'2021-12-31'}&base=${curr1}&symbols=${curr2}`,requestOptions)
         .then(response => response.json())
         .then((result) => {
-            console.log('result',result);
             // Code to Determine Last Date of every month
             for(let i=0; i<12; i++){
                 var d = new Date(2021, i + 1, 0);
@@ -74,13 +68,9 @@ const DetailsPage = () => {
                 }
                 monthsArray.push(convertDate(date));
                 let dateValue = monthsArray[i];
-                // console.log('dateValue',dateValue);
                 let exchangeObject = result.rates[dateValue];
                 // let targetCurr = curr2;
-                console.log('exchangeObject',exchangeObject);
-                exchangeRateArray.push(exchangeObject[curr2]);
-                // console.log(monthsArray);
-                console.log('exchangeRateArray',exchangeRateArray)    
+                exchangeRateArray.push(exchangeObject[curr2]); 
                 navigate('/DetailsPage',{state:{fromCurr: curr1, toCurr: curr2, currSymbol: currSymbol, fromAmount: amount, currencyList: currencyList, selectedToCurr: selectedToCurr, disableButtons: false, isHomePage: false, exchangeRateArray: exchangeRateArray, toAmount:toAmount, exchangeRate:exchangeRate, displayCurr:curr1}});
             }
         })
