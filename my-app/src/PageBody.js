@@ -21,15 +21,30 @@ const PageBody = (props) => {
             isHomePage,
             handleMoreDetails
         } = props;
+
+    // let monthsArray = [];
+    // let exchangeRateArray = [];
+    var myHeaders = new Headers();
+
+    myHeaders.append("apikey", "29PVT27k8eUCw8rYlKPbbGcZCqutwCK3");
+    
+    var requestOptions = {
+        method: 'GET',
+        redirect: 'follow',
+        headers: myHeaders
+    };
     
     const [buttonsDisabled, setButtonsDisabled] = useState(disableButtons);
-    
+
     return (
         <div className="HomePage-CurrExchange">
                 <div className='Curr-Input'>
                     <div className='Curr-Input-Top'>
                         <label style={{marginLeft:'1vh'}}>Amount</label>
-                        <input type='number' value={fromAmount} onChange={(e)=>{ChangeFromAmount(e); setButtonsDisabled(false)}}/>
+                        <input type='number' value={fromAmount} 
+                            onChange={(e)=>{ChangeFromAmount(e); setButtonsDisabled(false)}}
+                            // onChange={(e)=>{dispatch({type:'ChangeFromAmount',payload:{amount: e.target.value}}); setButtonsDisabled(false)}}
+                        />
                     </div>
                     <div className='Curr-Input-Bottom'>
                         <p>1.00 {fromCurr}={exchangeRate} {toCurr}</p>
@@ -42,6 +57,7 @@ const PageBody = (props) => {
                             <div>
                                 <select className='Curr-Select' value={fromCurr}
                                     onChange={(e)=>{setFromCurrency(e);console.log('fromcurr',fromCurr)}} 
+                                    // onChange={(e)=>{dispatch({type: 'setFromCurrency', payload:{curr: e.target.value}})}}
                                     disabled={buttonsDisabled}
                                 >
                                     {
@@ -57,7 +73,9 @@ const PageBody = (props) => {
                             <label>To</label>
                             <div>
                                 <select style={{marginRight: '1px'}} className='Curr-Select' value={toCurr} 
-                                onChange={(e)=>{setToCurrency(e);console.log('toCurr',toCurr)}} disabled={buttonsDisabled}>
+                                onChange={(e)=>{setToCurrency(e);console.log('toCurr',toCurr)}}
+                                // onChange={(e)=>{dispatch({type:'setToCurrency', payload:{curr: e.target.value}})}}
+                                disabled={buttonsDisabled}>
                                 {
                                     currencyList.map(curr=>(
                                         <option key={curr} value={curr}>{curr}</option>
