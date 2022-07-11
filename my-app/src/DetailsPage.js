@@ -3,6 +3,7 @@ import PageBody from './PageBody';
 import HistoryCharts from './HistoryCharts';
 import { useEffect, useState } from 'react';
 import {useLocation, useNavigate} from 'react-router-dom';
+import requestOptions from './Helpers/Config';
 
 const DetailsPage = () => {
     const location = useLocation();
@@ -20,14 +21,6 @@ const DetailsPage = () => {
         currSymbol,
         isHomePage
     } = location.state;
-    var myHeaders = new Headers();
-    myHeaders.append("apikey", "29PVT27k8eUCw8rYlKPbbGcZCqutwCK3");
-
-    var requestOptions = {
-        method: 'GET',
-        redirect: 'follow',
-        headers: myHeaders
-    };
 
     const handleCurrencyConvert = () =>{
         fetch(`https://api.apilayer.com/exchangerates_data/latest?base=${fromCurr}`,requestOptions)
